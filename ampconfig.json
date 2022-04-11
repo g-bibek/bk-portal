@@ -1,0 +1,19 @@
+{
+  "dataServiceGeneratorVersion": "0.12.3",
+  "appInfo": {
+    "name": "Bk Portal",
+    "description": "",
+    "version": "y0bmgqiy",
+    "id": "cl1cubp0q36608901s6bybrqlm0",
+    "url": "https://app.amplication.com/cl1cubp0q36608901s6bybrqlm0",
+    "settings": {
+      "dbHost": "localhost",
+      "dbName": "",
+      "dbPassword": "admin",
+      "dbPort": 5432,
+      "dbUser": "admin",
+      "appId": "cl1cubp0q36608901s6bybrqlm0",
+      "authProvider": "Jwt"
+    }
+  }
+}
