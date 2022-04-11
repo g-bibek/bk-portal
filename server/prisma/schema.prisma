@@ -1,0 +1,181 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("POSTGRESQL_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  approvedEvents         Event[]              @relation(name: "approvedEvents")
+  authorizedEmpowerments Empowerment[]
+  Avatar                 String?
+  createdAt              DateTime             @default(now())
+  disapprovedEvents      Event[]              @relation(name: "disapprovedEvents")
+  email                  String               @unique
+  empowermentHistory     EmpowermentHistory[]
+  firstName              String?
+  group                  Group[]
+  id                     String               @id @default(cuid())
+  lastName               String?
+  mahakramaHistory       MahakramaHistory[]
+  password               String
+  roles                  String[]
+  signedUpEvents         Event[]              @relation(name: "signedUpEvents")
+  updatedAt              DateTime             @updatedAt
+  username               String               @unique
+}
+
+model Group {
+  announcement     Announcement?      @relation(fields: [announcementId], references: [id])
+  announcementId   String?
+  createdAt        DateTime           @default(now())
+  details          String?
+  discussionForums DiscussionForum[]
+  groupType        EnumGroupGroupType
+  id               String             @id @default(cuid())
+  name             String             @unique
+  resources        Resource[]
+  updatedAt        DateTime           @updatedAt
+  users            User[]
+}
+
+model GroupType {
+  createdAt DateTime           @default(now())
+  id        String             @id @default(cuid())
+  name      EnumGroupTypeName?
+  updatedAt DateTime           @updatedAt
+}
+
+model Resource {
+  childResources   Resource[]                @relation(name: "childResources")
+  createdAt        DateTime                  @default(now())
+  empowerments     Empowerment[]
+  event            Event?                    @relation(fields: [eventId], references: [id])
+  eventId          String?
+  groups           Group[]
+  id               String                    @id @default(cuid())
+  mahakramas       Mahakrama[]
+  name             String
+  parentResource   Resource?                 @relation(name: "childResources", fields: [parentResourceId], references: [id])
+  parentResourceId String?
+  resourceType     EnumResourceResourceType?
+  updatedAt        DateTime                  @updatedAt
+}
+
+model Mahakrama {
+  createdAt          DateTime           @default(now())
+  id                 String             @id @default(cuid())
+  mahakramaHistories MahakramaHistory[]
+  name               String
+  resource           Resource[]
+  stepNumber         String             @unique
+  updatedAt          DateTime           @updatedAt
+}
+
+model MahakramaHistory {
+  comment                      String?
+  createdAt                    DateTime    @default(now())
+  id                           String      @id @default(cuid())
+  isDeleted                    Boolean?
+  mahakrama                    Mahakrama[]
+  isMarkedCompleteByInstructor Boolean?
+  isMarkedCompleteByStudent    Boolean?
+  student                      User        @relation(fields: [studentId], references: [id])
+  studentId                    String
+  updatedAt                    DateTime    @updatedAt
+}
+
+model Empowerment {
+  authorizedTeachers   User[]
+  createdAt            DateTime             @default(now())
+  empowermentHistories EmpowermentHistory[]
+  id                   String               @id @default(cuid())
+  isDeleted            Boolean?
+  name                 String
+  resource             Resource[]
+  updatedAt            DateTime             @updatedAt
+}
+
+model EmpowermentHistory {
+  createdAt     DateTime     @default(now())
+  empowerment   Empowerment? @relation(fields: [empowermentId], references: [id])
+  empowermentId String?
+  id            String       @id @default(cuid())
+  isDeleted     Boolean?
+  updatedAt     DateTime     @updatedAt
+  User          User?        @relation(fields: [UserId], references: [id])
+  UserId        String?
+}
+
+model Announcement {
+  createdAt   DateTime @default(now())
+  description String?
+  groups      Group[]
+  id          String   @id @default(cuid())
+  isDeleted   Boolean?
+  name        String
+  updatedAt   DateTime @updatedAt
+}
+
+model Event {
+  approvedUsers    User[]             @relation(name: "approvedEvents")
+  createdAt        DateTime           @default(now())
+  description      String?
+  disapprovedUsers User[]             @relation(name: "disapprovedEvents")
+  endDate          DateTime?
+  eventType        EnumEventEventType
+  id               String             @id @default(cuid())
+  isActive         Boolean
+  isDeleted        Boolean
+  isPublished      Boolean
+  name             String?
+  resources        Resource[]
+  signedUpUsers    User[]             @relation(name: "signedUpEvents")
+  startDate        DateTime?
+  updatedAt        DateTime           @updatedAt
+}
+
+model DiscussionForum {
+  createdAt         DateTime           @default(now())
+  discussionThreads DiscussionThread[]
+  group             Group[]
+  id                String             @id @default(cuid())
+  updatedAt         DateTime           @updatedAt
+}
+
+model DiscussionThread {
+  childDiscussionThreads DiscussionThread[] @relation(name: "childDiscussionThreads")
+  comment                String?
+  createdAt              DateTime           @default(now())
+  discussionForum        DiscussionForum?   @relation(fields: [discussionForumId], references: [id])
+  discussionForumId      String?
+  id                     String             @id @default(cuid())
+  parentThread           DiscussionThread?  @relation(name: "childDiscussionThreads", fields: [parentThreadId], references: [id])
+  parentThreadId         String?
+  updatedAt              DateTime           @updatedAt
+}
+
+enum EnumGroupGroupType {
+  System
+  Default
+}
+
+enum EnumGroupTypeName {
+  System
+  Regular
+}
+
+enum EnumResourceResourceType {
+  Image
+  Youtube
+  Document
+  Link
+  Folder
+}
+
+enum EnumEventEventType {
+  Sangha
+  Public
+}
