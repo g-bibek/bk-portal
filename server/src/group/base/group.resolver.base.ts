@@ -19,19 +19,16 @@ import * as gqlUserRoles from "../../auth/gqlUserRoles.decorator";
 import * as abacUtil from "../../auth/abac.util";
 import { isRecordNotFoundError } from "../../prisma.util";
 import { MetaQueryPayload } from "../../util/MetaQueryPayload";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { CreateGroupArgs } from "./CreateGroupArgs";
 import { UpdateGroupArgs } from "./UpdateGroupArgs";
 import { DeleteGroupArgs } from "./DeleteGroupArgs";
 import { GroupFindManyArgs } from "./GroupFindManyArgs";
 import { GroupFindUniqueArgs } from "./GroupFindUniqueArgs";
 import { Group } from "./Group";
-import { DiscussionForumFindManyArgs } from "../../discussionForum/base/DiscussionForumFindManyArgs";
-import { DiscussionForum } from "../../discussionForum/base/DiscussionForum";
-import { ResourceFindManyArgs } from "../../resource/base/ResourceFindManyArgs";
-import { Resource } from "../../resource/base/Resource";
 import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
 import { User } from "../../user/base/User";
-import { Announcement } from "../../announcement/base/Announcement";
 import { GroupService } from "../group.service";
 
 @graphql.Resolver(() => Group)
@@ -61,26 +58,18 @@ export class GroupResolverBase {
     };
   }
 
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => [Group])
   @nestAccessControl.UseRoles({
     resource: "Group",
     action: "read",
     possession: "any",
   })
-  async groups(
-    @graphql.Args() args: GroupFindManyArgs,
-    @gqlUserRoles.UserRoles() userRoles: string[]
-  ): Promise<Group[]> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "read",
-      possession: "any",
-      resource: "Group",
-    });
-    const results = await this.service.findMany(args);
-    return results.map((result) => permission.filter(result));
+  async groups(@graphql.Args() args: GroupFindManyArgs): Promise<Group[]> {
+    return this.service.findMany(args);
   }
 
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => Group, { nullable: true })
   @nestAccessControl.UseRoles({
     resource: "Group",
@@ -88,68 +77,31 @@ export class GroupResolverBase {
     possession: "own",
   })
   async group(
-    @graphql.Args() args: GroupFindUniqueArgs,
-    @gqlUserRoles.UserRoles() userRoles: string[]
+    @graphql.Args() args: GroupFindUniqueArgs
   ): Promise<Group | null> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "read",
-      possession: "own",
-      resource: "Group",
-    });
     const result = await this.service.findOne(args);
     if (result === null) {
       return null;
     }
-    return permission.filter(result);
+    return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Group)
   @nestAccessControl.UseRoles({
     resource: "Group",
     action: "create",
     possession: "any",
   })
-  async createGroup(
-    @graphql.Args() args: CreateGroupArgs,
-    @gqlUserRoles.UserRoles() userRoles: string[]
-  ): Promise<Group> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "create",
-      possession: "any",
-      resource: "Group",
-    });
-    const invalidAttributes = abacUtil.getInvalidAttributes(
-      permission,
-      args.data
-    );
-    if (invalidAttributes.length) {
-      const properties = invalidAttributes
-        .map((attribute: string) => JSON.stringify(attribute))
-        .join(", ");
-      const roles = userRoles
-        .map((role: string) => JSON.stringify(role))
-        .join(",");
-      throw new apollo.ApolloError(
-        `providing the properties: ${properties} on ${"Group"} creation is forbidden for roles: ${roles}`
-      );
-    }
+  async createGroup(@graphql.Args() args: CreateGroupArgs): Promise<Group> {
     // @ts-ignore
     return await this.service.create({
       ...args,
-      data: {
-        ...args.data,
-
-        announcement: args.data.announcement
-          ? {
-              connect: args.data.announcement,
-            }
-          : undefined,
-      },
+      data: args.data,
     });
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Group)
   @nestAccessControl.UseRoles({
     resource: "Group",
@@ -160,40 +112,11 @@ export class GroupResolverBase {
     @graphql.Args() args: UpdateGroupArgs,
     @gqlUserRoles.UserRoles() userRoles: string[]
   ): Promise<Group | null> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "update",
-      possession: "any",
-      resource: "Group",
-    });
-    const invalidAttributes = abacUtil.getInvalidAttributes(
-      permission,
-      args.data
-    );
-    if (invalidAttributes.length) {
-      const properties = invalidAttributes
-        .map((attribute: string) => JSON.stringify(attribute))
-        .join(", ");
-      const roles = userRoles
-        .map((role: string) => JSON.stringify(role))
-        .join(",");
-      throw new apollo.ApolloError(
-        `providing the properties: ${properties} on ${"Group"} update is forbidden for roles: ${roles}`
-      );
-    }
     try {
       // @ts-ignore
       return await this.service.update({
         ...args,
-        data: {
-          ...args.data,
-
-          announcement: args.data.announcement
-            ? {
-                connect: args.data.announcement,
-              }
-            : undefined,
-        },
+        data: args.data,
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -227,105 +150,23 @@ export class GroupResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [DiscussionForum])
-  @nestAccessControl.UseRoles({
-    resource: "Group",
-    action: "read",
-    possession: "any",
-  })
-  async discussionForums(
-    @graphql.Parent() parent: Group,
-    @graphql.Args() args: DiscussionForumFindManyArgs,
-    @gqlUserRoles.UserRoles() userRoles: string[]
-  ): Promise<DiscussionForum[]> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "read",
-      possession: "any",
-      resource: "DiscussionForum",
-    });
-    const results = await this.service.findDiscussionForums(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results.map((result) => permission.filter(result));
-  }
-
-  @graphql.ResolveField(() => [Resource])
-  @nestAccessControl.UseRoles({
-    resource: "Group",
-    action: "read",
-    possession: "any",
-  })
-  async resources(
-    @graphql.Parent() parent: Group,
-    @graphql.Args() args: ResourceFindManyArgs,
-    @gqlUserRoles.UserRoles() userRoles: string[]
-  ): Promise<Resource[]> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "read",
-      possession: "any",
-      resource: "Resource",
-    });
-    const results = await this.service.findResources(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results.map((result) => permission.filter(result));
-  }
-
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => [User])
   @nestAccessControl.UseRoles({
-    resource: "Group",
+    resource: "User",
     action: "read",
     possession: "any",
   })
   async users(
     @graphql.Parent() parent: Group,
-    @graphql.Args() args: UserFindManyArgs,
-    @gqlUserRoles.UserRoles() userRoles: string[]
+    @graphql.Args() args: UserFindManyArgs
   ): Promise<User[]> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "read",
-      possession: "any",
-      resource: "User",
-    });
     const results = await this.service.findUsers(parent.id, args);
 
     if (!results) {
       return [];
     }
 
-    return results.map((result) => permission.filter(result));
-  }
-
-  @graphql.ResolveField(() => Announcement, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "Group",
-    action: "read",
-    possession: "any",
-  })
-  async announcement(
-    @graphql.Parent() parent: Group,
-    @gqlUserRoles.UserRoles() userRoles: string[]
-  ): Promise<Announcement | null> {
-    const permission = this.rolesBuilder.permission({
-      role: userRoles,
-      action: "read",
-      possession: "any",
-      resource: "Announcement",
-    });
-    const result = await this.service.getAnnouncement(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return permission.filter(result);
+    return results;
   }
 }

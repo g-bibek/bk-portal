@@ -11,27 +11,12 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { AnnouncementWhereUniqueInput } from "../../announcement/base/AnnouncementWhereUniqueInput";
-import { ValidateNested, IsOptional, IsString, IsEnum } from "class-validator";
-import { Type } from "class-transformer";
-import { DiscussionForumCreateNestedManyWithoutGroupsInput } from "./DiscussionForumCreateNestedManyWithoutGroupsInput";
+import { IsString, IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { EnumGroupGroupType } from "./EnumGroupGroupType";
-import { ResourceCreateNestedManyWithoutGroupsInput } from "./ResourceCreateNestedManyWithoutGroupsInput";
 import { UserCreateNestedManyWithoutGroupsInput } from "./UserCreateNestedManyWithoutGroupsInput";
+import { Type } from "class-transformer";
 @InputType()
 class GroupCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => AnnouncementWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => AnnouncementWhereUniqueInput)
-  @IsOptional()
-  @Field(() => AnnouncementWhereUniqueInput, {
-    nullable: true,
-  })
-  announcement?: AnnouncementWhereUniqueInput | null;
-
   @ApiProperty({
     required: false,
     type: String,
@@ -42,18 +27,6 @@ class GroupCreateInput {
     nullable: true,
   })
   details?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => DiscussionForumCreateNestedManyWithoutGroupsInput,
-  })
-  @ValidateNested()
-  @Type(() => DiscussionForumCreateNestedManyWithoutGroupsInput)
-  @IsOptional()
-  @Field(() => DiscussionForumCreateNestedManyWithoutGroupsInput, {
-    nullable: true,
-  })
-  discussionForums?: DiscussionForumCreateNestedManyWithoutGroupsInput;
 
   @ApiProperty({
     required: true,
@@ -70,18 +43,6 @@ class GroupCreateInput {
   @IsString()
   @Field(() => String)
   name!: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => ResourceCreateNestedManyWithoutGroupsInput,
-  })
-  @ValidateNested()
-  @Type(() => ResourceCreateNestedManyWithoutGroupsInput)
-  @IsOptional()
-  @Field(() => ResourceCreateNestedManyWithoutGroupsInput, {
-    nullable: true,
-  })
-  resources?: ResourceCreateNestedManyWithoutGroupsInput;
 
   @ApiProperty({
     required: false,

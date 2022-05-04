@@ -10,17 +10,7 @@ https://docs.amplication.com/docs/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "nestjs-prisma";
-
-import {
-  Prisma,
-  User,
-  Event,
-  Empowerment,
-  EmpowermentHistory,
-  Group,
-  MahakramaHistory,
-} from "@prisma/client";
-
+import { Prisma, User, Group } from "@prisma/client";
 import { PasswordService } from "../../auth/password.service";
 import { transformStringFieldUpdateInput } from "../../prisma.util";
 
@@ -82,50 +72,6 @@ export class UserServiceBase {
     return this.prisma.user.delete(args);
   }
 
-  async findApprovedEvents(
-    parentId: string,
-    args: Prisma.EventFindManyArgs
-  ): Promise<Event[]> {
-    return this.prisma.user
-      .findUnique({
-        where: { id: parentId },
-      })
-      .approvedEvents(args);
-  }
-
-  async findAuthorizedEmpowerments(
-    parentId: string,
-    args: Prisma.EmpowermentFindManyArgs
-  ): Promise<Empowerment[]> {
-    return this.prisma.user
-      .findUnique({
-        where: { id: parentId },
-      })
-      .authorizedEmpowerments(args);
-  }
-
-  async findDisapprovedEvents(
-    parentId: string,
-    args: Prisma.EventFindManyArgs
-  ): Promise<Event[]> {
-    return this.prisma.user
-      .findUnique({
-        where: { id: parentId },
-      })
-      .disapprovedEvents(args);
-  }
-
-  async findEmpowermentHistory(
-    parentId: string,
-    args: Prisma.EmpowermentHistoryFindManyArgs
-  ): Promise<EmpowermentHistory[]> {
-    return this.prisma.user
-      .findUnique({
-        where: { id: parentId },
-      })
-      .empowermentHistory(args);
-  }
-
   async findGroup(
     parentId: string,
     args: Prisma.GroupFindManyArgs
@@ -135,27 +81,5 @@ export class UserServiceBase {
         where: { id: parentId },
       })
       .group(args);
-  }
-
-  async findMahakramaHistory(
-    parentId: string,
-    args: Prisma.MahakramaHistoryFindManyArgs
-  ): Promise<MahakramaHistory[]> {
-    return this.prisma.user
-      .findUnique({
-        where: { id: parentId },
-      })
-      .mahakramaHistory(args);
-  }
-
-  async findSignedUpEvents(
-    parentId: string,
-    args: Prisma.EventFindManyArgs
-  ): Promise<Event[]> {
-    return this.prisma.user
-      .findUnique({
-        where: { id: parentId },
-      })
-      .signedUpEvents(args);
   }
 }

@@ -1,6 +1,36 @@
 [
   {
-    "role": "admin",
+    "role": "member",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "moderator",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "default",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "nonMembers",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "accessRequested",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "User",
     "action": "read:own",
     "attributes": "*"
@@ -8,11 +38,83 @@
   {
     "role": "admin",
     "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "member",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "moderator",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "default",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "nonMembers",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "accessRequested",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "User",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "admin",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "member",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "moderator",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "default",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "nonMembers",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "accessRequested",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
@@ -20,7 +122,85 @@
   {
     "role": "admin",
     "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "member",
+    "resource": "User",
     "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "moderator",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "default",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "nonMembers",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "accessRequested",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "member",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "moderator",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "default",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "nonMembers",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "accessRequested",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "User",
+    "action": "read:any",
     "attributes": "*"
   },
   {
@@ -236,1662 +416,6 @@
   {
     "role": "admin",
     "resource": "Group",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "GroupType",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "GroupType",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "GroupType",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "GroupType",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "GroupType",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Resource",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Resource",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Resource",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Resource",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Resource",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "MahakramaHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "MahakramaHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "MahakramaHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "MahakramaHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "MahakramaHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Empowerment",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Empowerment",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Empowerment",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Empowerment",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Empowerment",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "EmpowermentHistory",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "EmpowermentHistory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "EmpowermentHistory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "EmpowermentHistory",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "EmpowermentHistory",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Announcement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Announcement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Event",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Event",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Event",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Event",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Event",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionForum",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionForum",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionForum",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionForum",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionForum",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionThread",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionThread",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionThread",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionThread",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "member",
-    "resource": "DiscussionThread",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "moderator",
-    "resource": "DiscussionThread",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "default",
-    "resource": "DiscussionThread",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "nonMembers",
-    "resource": "DiscussionThread",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "accessRequested",
-    "resource": "DiscussionThread",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DiscussionThread",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "DiscussionThread",
     "action": "read:any",
     "attributes": "*"
   }

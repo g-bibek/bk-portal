@@ -10,14 +10,7 @@ https://docs.amplication.com/docs/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "nestjs-prisma";
-import {
-  Prisma,
-  Group,
-  DiscussionForum,
-  Resource,
-  User,
-  Announcement,
-} from "@prisma/client";
+import { Prisma, Group, User } from "@prisma/client";
 
 export class GroupServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -54,28 +47,6 @@ export class GroupServiceBase {
     return this.prisma.group.delete(args);
   }
 
-  async findDiscussionForums(
-    parentId: string,
-    args: Prisma.DiscussionForumFindManyArgs
-  ): Promise<DiscussionForum[]> {
-    return this.prisma.group
-      .findUnique({
-        where: { id: parentId },
-      })
-      .discussionForums(args);
-  }
-
-  async findResources(
-    parentId: string,
-    args: Prisma.ResourceFindManyArgs
-  ): Promise<Resource[]> {
-    return this.prisma.group
-      .findUnique({
-        where: { id: parentId },
-      })
-      .resources(args);
-  }
-
   async findUsers(
     parentId: string,
     args: Prisma.UserFindManyArgs
@@ -85,13 +56,5 @@ export class GroupServiceBase {
         where: { id: parentId },
       })
       .users(args);
-  }
-
-  async getAnnouncement(parentId: string): Promise<Announcement | null> {
-    return this.prisma.group
-      .findUnique({
-        where: { id: parentId },
-      })
-      .announcement();
   }
 }

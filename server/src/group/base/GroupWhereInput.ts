@@ -11,29 +11,14 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { AnnouncementWhereUniqueInput } from "../../announcement/base/AnnouncementWhereUniqueInput";
-import { ValidateNested, IsOptional, IsEnum } from "class-validator";
-import { Type } from "class-transformer";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { DiscussionForumListRelationFilter } from "../../discussionForum/base/DiscussionForumListRelationFilter";
+import { Type } from "class-transformer";
+import { IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { EnumGroupGroupType } from "./EnumGroupGroupType";
 import { StringFilter } from "../../util/StringFilter";
-import { ResourceListRelationFilter } from "../../resource/base/ResourceListRelationFilter";
 import { UserListRelationFilter } from "../../user/base/UserListRelationFilter";
 @InputType()
 class GroupWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => AnnouncementWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => AnnouncementWhereUniqueInput)
-  @IsOptional()
-  @Field(() => AnnouncementWhereUniqueInput, {
-    nullable: true,
-  })
-  announcement?: AnnouncementWhereUniqueInput;
-
   @ApiProperty({
     required: false,
     type: StringNullableFilter,
@@ -44,18 +29,6 @@ class GroupWhereInput {
     nullable: true,
   })
   details?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => DiscussionForumListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => DiscussionForumListRelationFilter)
-  @IsOptional()
-  @Field(() => DiscussionForumListRelationFilter, {
-    nullable: true,
-  })
-  discussionForums?: DiscussionForumListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -89,18 +62,6 @@ class GroupWhereInput {
     nullable: true,
   })
   name?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => ResourceListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => ResourceListRelationFilter)
-  @IsOptional()
-  @Field(() => ResourceListRelationFilter, {
-    nullable: true,
-  })
-  resources?: ResourceListRelationFilter;
 
   @ApiProperty({
     required: false,
