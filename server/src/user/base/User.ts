@@ -11,33 +11,11 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Event } from "../../event/base/Event";
-import { ValidateNested, IsOptional, IsString, IsDate } from "class-validator";
+import { IsString, IsOptional, IsDate, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
-import { Empowerment } from "../../empowerment/base/Empowerment";
-import { EmpowermentHistory } from "../../empowermentHistory/base/EmpowermentHistory";
 import { Group } from "../../group/base/Group";
-import { MahakramaHistory } from "../../mahakramaHistory/base/MahakramaHistory";
 @ObjectType()
 class User {
-  @ApiProperty({
-    required: false,
-    type: () => [Event],
-  })
-  @ValidateNested()
-  @Type(() => Event)
-  @IsOptional()
-  approvedEvents?: Array<Event>;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Empowerment],
-  })
-  @ValidateNested()
-  @Type(() => Empowerment)
-  @IsOptional()
-  authorizedEmpowerments?: Array<Empowerment>;
-
   @ApiProperty({
     required: false,
     type: String,
@@ -58,30 +36,12 @@ class User {
   createdAt!: Date;
 
   @ApiProperty({
-    required: false,
-    type: () => [Event],
-  })
-  @ValidateNested()
-  @Type(() => Event)
-  @IsOptional()
-  disapprovedEvents?: Array<Event>;
-
-  @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
   @Field(() => String)
   email!: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => [EmpowermentHistory],
-  })
-  @ValidateNested()
-  @Type(() => EmpowermentHistory)
-  @IsOptional()
-  empowermentHistory?: Array<EmpowermentHistory>;
 
   @ApiProperty({
     required: false,
@@ -123,15 +83,6 @@ class User {
   lastName!: string | null;
 
   @ApiProperty({
-    required: false,
-    type: () => [MahakramaHistory],
-  })
-  @ValidateNested()
-  @Type(() => MahakramaHistory)
-  @IsOptional()
-  mahakramaHistory?: Array<MahakramaHistory>;
-
-  @ApiProperty({
     required: true,
     type: [String],
   })
@@ -140,15 +91,6 @@ class User {
   })
   @Field(() => [String])
   roles!: Array<string>;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Event],
-  })
-  @ValidateNested()
-  @Type(() => Event)
-  @IsOptional()
-  signedUpEvents?: Array<Event>;
 
   @ApiProperty({
     required: true,

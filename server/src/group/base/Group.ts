@@ -11,30 +11,18 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Announcement } from "../../announcement/base/Announcement";
 import {
-  ValidateNested,
-  IsOptional,
   IsDate,
   IsString,
+  IsOptional,
   IsEnum,
+  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { DiscussionForum } from "../../discussionForum/base/DiscussionForum";
 import { EnumGroupGroupType } from "./EnumGroupGroupType";
-import { Resource } from "../../resource/base/Resource";
 import { User } from "../../user/base/User";
 @ObjectType()
 class Group {
-  @ApiProperty({
-    required: false,
-    type: () => Announcement,
-  })
-  @ValidateNested()
-  @Type(() => Announcement)
-  @IsOptional()
-  announcement?: Announcement | null;
-
   @ApiProperty({
     required: true,
   })
@@ -53,15 +41,6 @@ class Group {
     nullable: true,
   })
   details!: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => [DiscussionForum],
-  })
-  @ValidateNested()
-  @Type(() => DiscussionForum)
-  @IsOptional()
-  discussionForums?: Array<DiscussionForum>;
 
   @ApiProperty({
     required: true,
@@ -88,15 +67,6 @@ class Group {
   @IsString()
   @Field(() => String)
   name!: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Resource],
-  })
-  @ValidateNested()
-  @Type(() => Resource)
-  @IsOptional()
-  resources?: Array<Resource>;
 
   @ApiProperty({
     required: true,

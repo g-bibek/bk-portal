@@ -11,39 +11,11 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { EventUpdateManyWithoutUsersInput } from "./EventUpdateManyWithoutUsersInput";
-import { ValidateNested, IsOptional, IsString } from "class-validator";
-import { Type } from "class-transformer";
-import { EmpowermentUpdateManyWithoutUsersInput } from "./EmpowermentUpdateManyWithoutUsersInput";
-import { EmpowermentHistoryUpdateManyWithoutUsersInput } from "./EmpowermentHistoryUpdateManyWithoutUsersInput";
+import { IsString, IsOptional, ValidateNested } from "class-validator";
 import { GroupUpdateManyWithoutUsersInput } from "./GroupUpdateManyWithoutUsersInput";
-import { MahakramaHistoryUpdateManyWithoutUsersInput } from "./MahakramaHistoryUpdateManyWithoutUsersInput";
+import { Type } from "class-transformer";
 @InputType()
 class UserUpdateInput {
-  @ApiProperty({
-    required: false,
-    type: () => EventUpdateManyWithoutUsersInput,
-  })
-  @ValidateNested()
-  @Type(() => EventUpdateManyWithoutUsersInput)
-  @IsOptional()
-  @Field(() => EventUpdateManyWithoutUsersInput, {
-    nullable: true,
-  })
-  approvedEvents?: EventUpdateManyWithoutUsersInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => EmpowermentUpdateManyWithoutUsersInput,
-  })
-  @ValidateNested()
-  @Type(() => EmpowermentUpdateManyWithoutUsersInput)
-  @IsOptional()
-  @Field(() => EmpowermentUpdateManyWithoutUsersInput, {
-    nullable: true,
-  })
-  authorizedEmpowerments?: EmpowermentUpdateManyWithoutUsersInput;
-
   @ApiProperty({
     required: false,
     type: String,
@@ -57,18 +29,6 @@ class UserUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => EventUpdateManyWithoutUsersInput,
-  })
-  @ValidateNested()
-  @Type(() => EventUpdateManyWithoutUsersInput)
-  @IsOptional()
-  @Field(() => EventUpdateManyWithoutUsersInput, {
-    nullable: true,
-  })
-  disapprovedEvents?: EventUpdateManyWithoutUsersInput;
-
-  @ApiProperty({
-    required: false,
     type: String,
   })
   @IsString()
@@ -77,18 +37,6 @@ class UserUpdateInput {
     nullable: true,
   })
   email?: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => EmpowermentHistoryUpdateManyWithoutUsersInput,
-  })
-  @ValidateNested()
-  @Type(() => EmpowermentHistoryUpdateManyWithoutUsersInput)
-  @IsOptional()
-  @Field(() => EmpowermentHistoryUpdateManyWithoutUsersInput, {
-    nullable: true,
-  })
-  empowermentHistory?: EmpowermentHistoryUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
@@ -126,18 +74,6 @@ class UserUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => MahakramaHistoryUpdateManyWithoutUsersInput,
-  })
-  @ValidateNested()
-  @Type(() => MahakramaHistoryUpdateManyWithoutUsersInput)
-  @IsOptional()
-  @Field(() => MahakramaHistoryUpdateManyWithoutUsersInput, {
-    nullable: true,
-  })
-  mahakramaHistory?: MahakramaHistoryUpdateManyWithoutUsersInput;
-
-  @ApiProperty({
-    required: false,
     type: String,
   })
   @IsString()
@@ -159,18 +95,6 @@ class UserUpdateInput {
     nullable: true,
   })
   roles?: Array<string>;
-
-  @ApiProperty({
-    required: false,
-    type: () => EventUpdateManyWithoutUsersInput,
-  })
-  @ValidateNested()
-  @Type(() => EventUpdateManyWithoutUsersInput)
-  @IsOptional()
-  @Field(() => EventUpdateManyWithoutUsersInput, {
-    nullable: true,
-  })
-  signedUpEvents?: EventUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,

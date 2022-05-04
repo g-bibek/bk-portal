@@ -11,27 +11,12 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { AnnouncementWhereUniqueInput } from "../../announcement/base/AnnouncementWhereUniqueInput";
-import { ValidateNested, IsOptional, IsString, IsEnum } from "class-validator";
-import { Type } from "class-transformer";
-import { DiscussionForumUpdateManyWithoutGroupsInput } from "./DiscussionForumUpdateManyWithoutGroupsInput";
+import { IsString, IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { EnumGroupGroupType } from "./EnumGroupGroupType";
-import { ResourceUpdateManyWithoutGroupsInput } from "./ResourceUpdateManyWithoutGroupsInput";
 import { UserUpdateManyWithoutGroupsInput } from "./UserUpdateManyWithoutGroupsInput";
+import { Type } from "class-transformer";
 @InputType()
 class GroupUpdateInput {
-  @ApiProperty({
-    required: false,
-    type: () => AnnouncementWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => AnnouncementWhereUniqueInput)
-  @IsOptional()
-  @Field(() => AnnouncementWhereUniqueInput, {
-    nullable: true,
-  })
-  announcement?: AnnouncementWhereUniqueInput | null;
-
   @ApiProperty({
     required: false,
     type: String,
@@ -42,18 +27,6 @@ class GroupUpdateInput {
     nullable: true,
   })
   details?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => DiscussionForumUpdateManyWithoutGroupsInput,
-  })
-  @ValidateNested()
-  @Type(() => DiscussionForumUpdateManyWithoutGroupsInput)
-  @IsOptional()
-  @Field(() => DiscussionForumUpdateManyWithoutGroupsInput, {
-    nullable: true,
-  })
-  discussionForums?: DiscussionForumUpdateManyWithoutGroupsInput;
 
   @ApiProperty({
     required: false,
@@ -76,18 +49,6 @@ class GroupUpdateInput {
     nullable: true,
   })
   name?: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => ResourceUpdateManyWithoutGroupsInput,
-  })
-  @ValidateNested()
-  @Type(() => ResourceUpdateManyWithoutGroupsInput)
-  @IsOptional()
-  @Field(() => ResourceUpdateManyWithoutGroupsInput, {
-    nullable: true,
-  })
-  resources?: ResourceUpdateManyWithoutGroupsInput;
 
   @ApiProperty({
     required: false,

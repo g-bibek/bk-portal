@@ -3,23 +3,14 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  ReferenceField,
-  TextField,
   DateField,
+  TextField,
 } from "react-admin";
-import { ANNOUNCEMENT_TITLE_FIELD } from "../announcement/AnnouncementTitle";
 
 export const GroupShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <ReferenceField
-          label="Announcement"
-          source="announcement.id"
-          reference="Announcement"
-        >
-          <TextField source={ANNOUNCEMENT_TITLE_FIELD} />
-        </ReferenceField>
         <DateField source="createdAt" label="Created At" />
         <TextField label="Details" source="details" />
         <TextField label="Group Type" source="groupType" />
