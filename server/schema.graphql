@@ -1,0 +1,227 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input Credentials {
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum EnumGroupGroupType {
+  Default
+  System
+}
+
+type Group {
+  createdAt: DateTime!
+  details: String
+  groupType: EnumGroupGroupType
+  id: String!
+  name: String!
+  updatedAt: DateTime!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+}
+
+input GroupCreateInput {
+  details: String
+  groupType: EnumGroupGroupType!
+  name: String!
+  users: UserCreateNestedManyWithoutGroupsInput
+}
+
+input GroupCreateNestedManyWithoutUsersInput {
+  connect: [GroupWhereUniqueInput!]
+}
+
+input GroupListRelationFilter {
+  every: GroupWhereInput
+  none: GroupWhereInput
+  some: GroupWhereInput
+}
+
+input GroupOrderByInput {
+  createdAt: SortOrder
+  details: SortOrder
+  groupType: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input GroupUpdateInput {
+  details: String
+  groupType: EnumGroupGroupType
+  name: String
+  users: UserUpdateManyWithoutGroupsInput
+}
+
+input GroupUpdateManyWithoutUsersInput {
+  connect: [GroupWhereUniqueInput!]
+  disconnect: [GroupWhereUniqueInput!]
+  set: [GroupWhereUniqueInput!]
+}
+
+input GroupWhereInput {
+  details: StringNullableFilter
+  groupType: EnumGroupGroupType
+  id: StringFilter
+  name: StringFilter
+  users: UserListRelationFilter
+}
+
+input GroupWhereUniqueInput {
+  id: String!
+}
+
+type MetaQueryPayload {
+  count: Float!
+}
+
+type Mutation {
+  createGroup(data: GroupCreateInput!): Group!
+  createUser(data: UserCreateInput!): User!
+  deleteGroup(where: GroupWhereUniqueInput!): Group!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  login(credentials: Credentials!): UserInfo!
+  updateGroup(data: GroupUpdateInput!, where: GroupWhereUniqueInput!): Group!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type Query {
+  _groupsMeta(orderBy: [GroupOrderByInput!], skip: Float, take: Float, where: GroupWhereInput): MetaQueryPayload!
+  _usersMeta(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): MetaQueryPayload!
+  group(where: GroupWhereUniqueInput!): Group
+  groups(orderBy: [GroupOrderByInput!], skip: Float, take: Float, where: GroupWhereInput): [Group!]!
+  user(where: UserWhereUniqueInput!): User
+  userInfo: UserInfo!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type User {
+  Avatar: String
+  createdAt: DateTime!
+  email: String!
+  firstName: String
+  group(orderBy: [GroupOrderByInput!], skip: Float, take: Float, where: GroupWhereInput): [Group!]!
+  id: String!
+  lastName: String
+  roles: [String!]!
+  updatedAt: DateTime!
+  username: String!
+}
+
+input UserCreateInput {
+  Avatar: String
+  email: String!
+  firstName: String
+  group: GroupCreateNestedManyWithoutUsersInput
+  lastName: String
+  password: String!
+  roles: [String!]!
+  username: String!
+}
+
+input UserCreateNestedManyWithoutGroupsInput {
+  connect: [UserWhereUniqueInput!]
+}
+
+type UserInfo {
+  accessToken: String
+  roles: [String!]!
+  username: String!
+}
+
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
+}
+
+input UserOrderByInput {
+  Avatar: SortOrder
+  createdAt: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  password: SortOrder
+  roles: SortOrder
+  updatedAt: SortOrder
+  username: SortOrder
+}
+
+input UserUpdateInput {
+  Avatar: String
+  email: String
+  firstName: String
+  group: GroupUpdateManyWithoutUsersInput
+  lastName: String
+  password: String
+  roles: [String!]
+  username: String
+}
+
+input UserUpdateManyWithoutGroupsInput {
+  connect: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+}
+
+input UserWhereInput {
+  Avatar: StringNullableFilter
+  email: StringFilter
+  firstName: StringNullableFilter
+  group: GroupListRelationFilter
+  id: StringFilter
+  lastName: StringNullableFilter
+  username: StringFilter
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}
